@@ -3,11 +3,12 @@ import webpack from "webpack";
 import { buildPlugins } from "./buildPlugins";
 import { buildLoaders } from "./buildLoaders";
 import { buildResolvers } from "./buildResolvers";
+import { buildDevServer } from "./buildDevServer";
 
 export function buildWebpackConfig(
   options: BuildOptions
 ): webpack.Configuration {
-  const { mode, paths } = options;
+  const { mode, paths, isDev } = options;
   return {
     // if production mode - minifying code (gzip, optimizing)
     mode, // development || production
@@ -27,5 +28,11 @@ export function buildWebpackConfig(
     },
     // import A from "./A.tsx" -> import A from "./A" (no need .tsx/ts/js etc...)
     resolve: buildResolvers(),
+    // to trace where error came from
+    devtool: isDev ? "inline-source-map" : undefined,
+    devServer: isDev ? buildDevServer(options) : undefined,
+    // performance: {
+    //   hints: false,
+    // },
   };
 }
