@@ -2,7 +2,7 @@ import webpack from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { BuildOptions } from "./types/config";
 
-export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   // the order of loaders matters
   const typescriptLoader = {
     test: /\.tsx?$/, // tsx | ts
@@ -12,8 +12,18 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
-      options.isDev ? "style-loader" : MiniCssExtractPlugin.loader, // Creates `style` nodes from JS strings
-      "css-loader", // Translates CSS into CommonJS
+      isDev ? "style-loader" : MiniCssExtractPlugin.loader, // Creates `style` nodes from JS strings // Translates CSS into CommonJS
+      {
+        loader: "css-loader",
+        options: {
+          modules: {
+            auto: (resPath: string) => Boolean(resPath.includes(".module")), // to use css modules hashing classes only in .module. files
+            localIdentName: isDev
+              ? "[path][name]__[local]--[hash:base64:5]"
+              : "[hash:base64:8]", // to have hashed classed only in prod
+          },
+        },
+      },
       "sass-loader", // Compiles Sass to CSS
     ],
   };
