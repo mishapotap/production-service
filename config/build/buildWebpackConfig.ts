@@ -24,7 +24,7 @@ export function buildWebpackConfig(
     plugins: buildPlugins(options),
     //  webpack can work with other files except JS
     module: {
-      rules: buildLoaders(),
+      rules: buildLoaders(options),
     },
     // import A from "./A.tsx" -> import A from "./A" (no need .tsx/ts/js etc...)
     resolve: buildResolvers(),
