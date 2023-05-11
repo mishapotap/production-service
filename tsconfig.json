@@ -4,7 +4,7 @@
     "noImplicitAny": true, // show all places where no type
     "module": "ESNext",
     "target": "es5", // in which version we compile
-    "jsx": "react", // for react
+    "jsx": "react-jsx", // for react
     "allowJs": true, // compiler except ts files work with Js files too
     "moduleResolution": "node", // "node" | "classic"
     "baseUrl": ".", // for absolute import
