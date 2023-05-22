@@ -8,6 +8,7 @@
     "allowJs": true, // compiler except ts files work with Js files too
     "moduleResolution": "node", // "node" | "classic"
     "baseUrl": ".", // for absolute import
+    "paths": {"*":  ["./src/*"]}, // all imports starts from src folder
     "esModuleInterop": true, // import Moment from "moment" (undefined) -> import Moment from "moment" [object Object]
     "allowSyntheticDefaultImports": true // import * as React from "react" -> import React from "react"
   },
