@@ -4,6 +4,10 @@ import { BuildOptions } from "./types/config";
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   // the order of loaders matters
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ["@svgr/webpack"],
+  };
   const typescriptLoader = {
     test: /\.tsx?$/, // tsx | ts
     use: "ts-loader", // loader which will work with these extensions
@@ -27,5 +31,13 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
       "sass-loader", // Compiles Sass to CSS
     ],
   };
-  return [typescriptLoader, cssLoader];
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+    use: [
+      {
+        loader: "file-loader",
+      },
+    ],
+  };
+  return [fileLoader, svgLoader, typescriptLoader, cssLoader];
 }
