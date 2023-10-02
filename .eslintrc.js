@@ -3,7 +3,13 @@ module.exports = {
         browser: true,
         es2021: true,
     },
-    extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react/recommended', 'prettier'],
+    extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:react/recommended',
+        'plugin:i18next/recommended',
+        'prettier',
+    ],
     overrides: [
         {
             env: {
@@ -20,11 +26,12 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['@typescript-eslint', 'react'],
+    plugins: ['react', '@typescript-eslint', 'i18next'],
     rules: {
         'react/react-in-jsx-scope': 'off',
         '@typescript-eslint/no-unused-vars': 'warn',
         '@typescript-eslint/ban-ts-comment': 'warn',
         'react/no-deprecated': 'warn',
+        'i18next/no-literal-string': ['error', { markupOnly: true }],
     },
 };
