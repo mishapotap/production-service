@@ -16,5 +16,6 @@
         "compilerOptions": {
             "module": "CommonJS" // override for ts-node
         }
-    }
+    },
+    "include": ["./config/jest/jest-setup.ts", "./src/**/*.ts", "./src/**/*.tsx"],
 }
