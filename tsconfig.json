@@ -1,20 +1,20 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/", // where to compile (no need cuz we compile with webpack)
-    "noImplicitAny": true, // show all places where no type
-    "module": "ESNext",
-    "target": "es5", // in which version we compile
-    "jsx": "react-jsx", // for react
-    "allowJs": true, // compiler except ts files work with Js files too
-    "moduleResolution": "node", // "node" | "classic"
-    "baseUrl": ".", // for absolute import
-    "paths": {"*":  ["./src/*"]}, // all imports starts from src folder
-    "esModuleInterop": true, // import Moment from "moment" (undefined) -> import Moment from "moment" [object Object]
-    "allowSyntheticDefaultImports": true // import * as React from "react" -> import React from "react"
-  },
-  "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS" // override for ts-node
+        "outDir": "./dist/", // where to compile (no need cuz we compile with webpack)
+        "noImplicitAny": true, // show all places where no type
+        "module": "ESNext",
+        "target": "es5", // in which version we compile
+        "jsx": "react-jsx", // for react
+        "allowJs": true, // compiler except ts files work with Js files too
+        "moduleResolution": "node", // "node" | "classic"
+        "baseUrl": ".", // for absolute import
+        "paths": { "*": ["./src/*"] }, // all imports starts from src folder
+        "esModuleInterop": true, // import Moment from "moment" (undefined) -> import Moment from "moment" [object Object]
+        "allowSyntheticDefaultImports": true // import * as React from "react" -> import React from "react"
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS" // override for ts-node
+        }
     }
-  }
 }
