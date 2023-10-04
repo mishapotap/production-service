@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { classNames } from 'shared/lib/classNames';
-import styles from './BugButton.module.scss';
 import { useTranslation } from 'react-i18next';
 
 interface BugButtonProps {
@@ -20,7 +19,7 @@ export const BugButton = ({ className }: BugButtonProps) => {
     const throwError = () => setError(true);
 
     return (
-        <Button onClick={throwError} className={classNames(styles.bugButton, {}, [className])}>
+        <Button onClick={throwError} theme={ThemeButton.OUTLINED} className={classNames('', {}, [className])}>
             {t('Вызвать ошибку')}
         </Button>
     );
