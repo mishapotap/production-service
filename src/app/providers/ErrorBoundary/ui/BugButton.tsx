@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { classNames } from 'shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
 
@@ -19,7 +19,7 @@ export const BugButton = ({ className }: BugButtonProps) => {
     const throwError = () => setError(true);
 
     return (
-        <Button onClick={throwError} theme={ThemeButton.OUTLINED} className={classNames('', {}, [className])}>
+        <Button onClick={throwError} theme={ButtonTheme.OUTLINED} className={classNames('', {}, [className])}>
             {t('Вызвать ошибку')}
         </Button>
     );
