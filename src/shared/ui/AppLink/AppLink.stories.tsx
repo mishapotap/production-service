@@ -33,19 +33,19 @@ export const PrimaryDark: Story = {
     args: {
         theme: AppLinkTheme.PRIMARY,
     },
-    parameters: { theme: 'dark' },
+    parameters: { theme: 'app_dark_theme' },
 };
 
 export const SecondaryDark: Story = {
     args: {
         theme: AppLinkTheme.SECONDARY,
     },
-    parameters: { theme: 'dark' },
+    parameters: { theme: 'app_dark_theme' },
 };
 
 export const RedDark: Story = {
     args: {
         theme: AppLinkTheme.RED,
     },
-    parameters: { theme: 'dark' },
+    parameters: { theme: 'app_dark_theme' },
 };

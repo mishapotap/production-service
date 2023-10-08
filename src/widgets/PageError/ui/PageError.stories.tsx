@@ -13,5 +13,5 @@ type Story = StoryObj<typeof PageError>;
 export const Light: Story = {};
 
 export const Dark: Story = {
-    parameters: { theme: 'dark' },
+    parameters: { theme: 'app_dark_theme' },
 };
