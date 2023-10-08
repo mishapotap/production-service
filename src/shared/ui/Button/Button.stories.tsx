@@ -26,6 +26,12 @@ export const Clear: Story = {
     },
 };
 
+export const ClearInverted: Story = {
+    args: {
+        theme: ButtonTheme.CLEAR_INVERTED,
+    },
+};
+
 export const Outlined: Story = {
     args: {
         theme: ButtonTheme.OUTLINED,
@@ -50,7 +56,7 @@ export const OutlinedDark: Story = {
     args: {
         theme: ButtonTheme.OUTLINED,
     },
-    parameters: { theme: 'dark' },
+    parameters: { theme: 'app_dark_theme' },
 };
 
 export const BackgroundTheme: Story = {
@@ -63,7 +69,7 @@ export const BackgroundThemeDark: Story = {
     args: {
         theme: ButtonTheme.BACKGROUND,
     },
-    parameters: { theme: 'dark' },
+    parameters: { theme: 'app_dark_theme' },
 };
 
 export const BackgroundInvertedTheme: Story = {
@@ -76,7 +82,7 @@ export const BackgroundInvertedThemeDark: Story = {
     args: {
         theme: ButtonTheme.BACKGROUND_INVERTED,
     },
-    parameters: { theme: 'dark' },
+    parameters: { theme: 'app_dark_theme' },
 };
 
 export const Square: Story = {

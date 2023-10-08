@@ -7,9 +7,9 @@ import { ThemeProvider } from 'app/providers/ThemeProvider';
 //     </div>
 // );
 export const ThemeDecorator: Decorator = (Story, context) => {
-    const { theme = 'light' } = context.parameters;
+    const { theme = 'app_light_theme' } = context.parameters;
     return (
-        <ThemeProvider>
+        <ThemeProvider initialTheme={theme}>
             <div className={`app ${theme}`}>
                 <Story />
             </div>
