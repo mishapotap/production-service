@@ -1,4 +1,4 @@
-import { ChangeEvent, SyntheticEvent, useState } from 'react';
+import { ChangeEvent, SyntheticEvent, useEffect, useState } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import styles from './Input.module.scss';
 import { InputHTMLAttributes, memo } from 'react';
@@ -12,13 +12,17 @@ interface InputProps extends HTMLInputProps {
 }
 
 export const Input = memo((props: InputProps) => {
-    const { className, value, onChange, type = 'text', placeholder, ...otherProps } = props;
+    const { className, value, onChange, type = 'text', placeholder, autoFocus, ...otherProps } = props;
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [caretPosition, setCaretPosition] = useState<number>(0);
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
         setCaretPosition(e.target.value.length);
     };
+
+    useEffect(() => {
+        if (autoFocus) setIsFocused(true);
+    }, [autoFocus]);
 
     const onBlurHandler = () => setIsFocused(false);
     const onFocusHandler = () => setIsFocused(true);
@@ -36,6 +40,7 @@ export const Input = memo((props: InputProps) => {
                     onBlur={onBlurHandler}
                     onFocus={onFocusHandler}
                     onSelect={onSelectHandler}
+                    autoFocus={autoFocus}
                     className={styles.input}
                     {...otherProps}
                 />
