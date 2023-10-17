@@ -10,6 +10,9 @@
     "Главная": "Main",
     "О сайте": "About",
     "Войти": "Sing in",
+    "Выйти": "Log out",
     "Логин": "Login",
-    "Пароль": "Password"
+    "Пароль": "Password",
+    "Форма авторизации": "Login form",
+    "Вы ввели неверный логин или пароль": "Wrong login or password"
 }
